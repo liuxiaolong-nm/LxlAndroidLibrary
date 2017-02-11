@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cyhz.support">
+    package="com.lxl.support">
 
     <application
         android:allowBackup="true"
