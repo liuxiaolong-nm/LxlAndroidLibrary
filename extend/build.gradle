@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs' //this way we can find the .aar file in libs folder
+    }
+
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.liuxiaolong.library:support:0.0.3'
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+ext {
+    bintrayRepo = 'maven'////bintray上的仓库名，一般为maven
+    bintrayName = 'extend'//bintray上的项目名
+
+    publishedGroupId = 'com.liuxiaolong.library'//JCenter的GroupId
+    artifact = 'extend'//JCenter的ArtifactId
+
+    siteUrl = 'https://github.com/Jude95/RequestVolley'
+    gitUrl = 'https://github.com/Jude95/RequestVolley'
+
+    libraryVersion = '0.0.1'//版本号
+    libraryName = 'support'//项目名字，没什么用
+    libraryDescription = 'A tool for Android'//项目描述，没什么用
+
+    //开发者信息
+    developerId = 'liuxiaolong'
+    developerName = 'liuxiaolong'
+    developerEmail = '13391641569@163.com'
+
+    //以上所有信息自行修改，以下不变
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+apply from:'https://cdn.rawgit.com/Jude95/JCenter/master/install.gradle'
+apply from:'https://cdn.rawgit.com/Jude95/JCenter/master/bintray.gradle'
+

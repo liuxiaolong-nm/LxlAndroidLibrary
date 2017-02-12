@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".view.picclip.ExtPicClipAc">
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height50">
+        <ImageView
+            android:src="@drawable/ext_systemphotos_back_btn"
+            android:layout_marginLeft="@dimen/width20"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/width25"
+            android:layout_height="@dimen/height25" />
+        <TextView
+            android:text="返回"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/width50"
+            android:textSize="@dimen/width16"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/body"
+        android:layout_below="@+id/top"
+        android:layout_above="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/imgcontent"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/imgclip"
+            android:layout_centerInParent="true"
+            android:layout_width="@dimen/width223"
+            android:layout_height="@dimen/height317" />
+        <ImageView
+            android:alpha="0.3"
+            android:background="#000000"
+            android:id="@+id/cliptop"
+            android:layout_above="@+id/imgclip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:alpha="0.3"
+            android:background="#000000"
+            android:layout_above="@+id/clipbottom"
+            android:id="@+id/clipleft"
+            android:layout_below="@+id/cliptop"
+            android:layout_toLeftOf="@+id/imgclip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:alpha="0.3"
+            android:background="#000000"
+            android:layout_below="@+id/imgclip"
+            android:id="@+id/clipbottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:alpha="0.3"
+            android:background="#000000"
+            android:layout_above="@+id/clipbottom"
+            android:layout_below="@+id/cliptop"
+            android:layout_toRightOf="@+id/imgclip"
+            android:id="@+id/clipright"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height100">
+        <RelativeLayout
+            android:id="@+id/bottom_left"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginTop="@dimen/height20"
+                android:src="@drawable/ext_icon_clippicbottomleft"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/width35"
+                android:layout_height="@dimen/height35" />
+            <TextView
+                android:layout_marginBottom="@dimen/height20"
+                android:text="旋转图片"
+                android:textSize="@dimen/width16"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/bottom_right"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginTop="@dimen/height20"
+                android:src="@drawable/ext_icon_clippicbottomright"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/width35"
+                android:layout_height="@dimen/height35" />
+            <TextView
+                android:layout_marginBottom="@dimen/height20"
+                android:text="确定"
+                android:textSize="@dimen/width16"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

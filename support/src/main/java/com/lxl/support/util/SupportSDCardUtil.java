@@ -1,5 +1,6 @@
 package com.lxl.support.util;
 
+import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
 
@@ -43,6 +44,14 @@ public class SupportSDCardUtil {
         return Environment.getRootDirectory().getAbsolutePath();
     }
 
+    /**
+     * 获取当前程序资源路径（data/data/com.xxx.xxx/files）。
+     * @param context
+     * @return
+     */
+    public static String getDadaFilesDir(Context context){
+        return context.getApplicationContext().getFilesDir().getAbsolutePath();
+    }
 
     public static final int UNIT_BYTE = 0;
     public static final int UNIT_KB = 1;

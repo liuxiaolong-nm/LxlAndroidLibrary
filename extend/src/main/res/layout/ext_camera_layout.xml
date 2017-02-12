@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height44"
+        android:background="#1081e0"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/width20"
+        android:text="拍照"
+        />
+
+    <FrameLayout
+        android:layout_above="@+id/btns"
+        android:layout_below="@+id/title"
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/btns"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height95"
+        android:background="#000000"
+        >
+        <ImageView
+            android:text="拍摄"
+            android:id="@+id/camera_capture"
+            android:layout_width="@dimen/width51"
+            android:layout_height="@dimen/height51"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ext_icon_pizhaoanniu"
+            />
+
+        <TextView
+            android:text="完成"
+            android:id="@+id/camera_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/width18"
+            android:textColor="#ffffff"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/width13"
+            android:visibility="gone"
+            />
+
+
+
+        <TextView
+            android:text="取消"
+            android:id="@+id/cancel_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/width18"
+            android:textColor="#ffffff"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/width13"
+            />
+
+
+        <TextView
+            android:text="取消"
+            android:id="@+id/camera_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/width18"
+            android:textColor="#ffffff"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/width13"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

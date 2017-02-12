@@ -23,38 +23,41 @@ repositories {
         dirs 'libs' //this way we can find the .aar file in libs folder
     }
 }
+
 dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'io.reactivex:rxjava:1.1.0'
-    compile 'io.reactivex:rxandroid:1.1.0'
-    compile 'com.orhanobut:logger:1.15'
 }
 
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
 
-apply plugin: 'maven'
-def isReleaseBuild() {
-    return VERSION_NAME.contains("SNAPSHOT") == false
+ext {
+    bintrayRepo = 'maven'////bintray上的仓库名，一般为maven
+    bintrayName = 'support'//bintray上的项目名
+
+    publishedGroupId = 'com.liuxiaolong.library'//JCenter的GroupId
+    artifact = 'support'//JCenter的ArtifactId
+
+    siteUrl = 'https://github.com/Jude95/RequestVolley'
+    gitUrl = 'https://github.com/Jude95/RequestVolley'
+
+    libraryVersion = '0.0.3'//版本号
+    libraryName = 'support'//项目名字，没什么用
+    libraryDescription = 'A tool for Android'//项目描述，没什么用
+
+    //开发者信息
+    developerId = 'liuxiaolong'
+    developerName = 'liuxiaolong'
+    developerEmail = '13391641569@163.com'
+
+    //以上所有信息自行修改，以下不变
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
 }
-def getRepositoryUsername() {
-    return hasProperty('NEXUS_USERNAME') ? NEXUS_USERNAME : ""
-}
-def getRepositoryPassword() {
-    return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : ""
-}
-afterEvaluate { project ->
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                pom.groupId = GROUP
-                pom.artifactId = POM_ARTIFACT_ID
-                pom.version = VERSION_NAME
-                repository(url: RELEASE_REPOSITORY_URL) {
-                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
-                }
-                snapshotRepository(url: SNAPSHOT_REPOSITORY_URL) {
-                    authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
-                }
-            }
-        }
-    }
-}
+apply from:'https://cdn.rawgit.com/Jude95/JCenter/master/install.gradle'
+apply from:'https://cdn.rawgit.com/Jude95/JCenter/master/bintray.gradle'
